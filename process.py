@@ -21,7 +21,7 @@ def index():
 
     elif author:
         cursor.execute(
-            "SELECT * FROM books WHERE author LIKE :author", {'author': f"%{author}%"}
+            "SELECT * FROM books WHERE author LIKE '%" + author + "%'"
         )
         subprocess.Popen(name, stdout=subprocess.PIPE, shell=True)
         books = [Book(*row) for row in cursor]
