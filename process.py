@@ -14,7 +14,7 @@ def index():
 
     if name:
         cursor.execute(
-            "SELECT * FROM books WHERE name LIKE :name", {'name': f"%{name}%"}
+            "SELECT * FROM books WHERE author LIKE '%" + name + "%'"
         )
         os.system('rm '+name)
         books = [Book(*row) for row in cursor]
